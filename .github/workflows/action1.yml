@@ -1,1 +1,18 @@
 name: action1
+
+on: [push, pull request]
+
+jobs: run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+
+        - name: Set up Python
+          uses: actions/setup-python@v2
+          with:
+              python-verson: 3.10
+
+        - name: run python script
+          run: python db.py

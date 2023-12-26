@@ -21,7 +21,7 @@ def query_aws_rds(db_params, query):
         conn.commit()
 
 # Create users table
- = """CREATE TABLE users (
+create_query = """CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username VARCHAR(50),
     email VARCHAR(100)
@@ -33,4 +33,6 @@ insert_query = "INSERT INTO users (username, email) VALUES ('john_doe', 'john@ex
 # read query
 read_query = "SELECT * FROM users;"
 
-query_aws_rds(
+query_aws_rds(db_params)
+query_aws_rds(insert_query)
+query_aws_rds(read_query)
